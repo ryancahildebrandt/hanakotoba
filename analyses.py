@@ -6,7 +6,7 @@ Created on Tue Mar  1 10:13:51 AM EST 2022
 author: Ryan Hildebrandt 
 """
 
-# %% Doc setup
+# Doc setup
 #import datetime as dt
 import dateutil as du
 import itertools as it

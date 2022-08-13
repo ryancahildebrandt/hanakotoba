@@ -6,7 +6,7 @@ Created on Thu Nov 11 08:43:14 PM EST 2021
 author: Ryan Hildebrandt 
 """
 
-# %% Doc setup
+# Doc setup
 import bs4
 import pandas as pd
 import pickle
@@ -16,7 +16,7 @@ import requests
 
 kks = pykakasi.kakasi()
 
-# %% funcs
+# funcs
 def scrape_hk(target_url, start_regex, start_n, end_regex, end_n):
 	hkn_p = requests.get(target_url)
 	hkn_s = bs4.BeautifulSoup(hkn_p.content, "html.parser", parse_only = bs4.SoupStrainer("p"))
@@ -51,10 +51,10 @@ def scrape_search_names(in_list):
 	out_list = list(set([i for i in out_list if i]))
 	return out_list
 
-# %% azb readin
+# azb readin
 azb_df = pd.read_csv("./data/aozora_corpus_en.csv")
 
-# %% hanakotoba scrape
+# hanakotoba scrape
 hkn_url_a = "https://hananokotoba.com/hananonamae/"
 hkn_urls = [
 "https://hananokotoba.com/hananonamae-2/",
@@ -119,7 +119,7 @@ for h in hki_dict:
 	for v in variants:
 		hki_dict[h][v] = variant_meanings(hki_dict[h]["Variants"], v)
 
-# %% updating individual fields
+# updating individual fields
 hki_dict["アヤメ"] = hki_dict.pop("アイリス（アヤメ）")
 hki_dict.pop("アヤメ（アイリス）")
 hkn_dict["アヤメ"] = hkn_dict.pop("アヤメ（アイリス）")
@@ -152,7 +152,7 @@ hkn_dict["アカシア"] = hkn_dict.pop("ミモザ（アカシア）")
 hki_dict[""] = {i:[""] for i in hki_dict["アヤメ"].keys()}
 hkn_dict[""] = {i:[""] for i in hkn_dict["アヤメ"].keys()}
 
-# %% combine
+# combine
 hk_names = list(set().union(hki_dict, hkn_dict))
 
 hk_dict = {}
@@ -164,7 +164,7 @@ for h in hk_names:
 	elif h not in hkn_dict.keys() and h in hki_dict.keys():
 		hk_dict[h] = hkn_dict[""] | hki_dict[h]
 
-# %% export
+# export
 #pd.DataFrame.from_dict(data = hki_dict, orient = "index").to_csv("./data/hki_df.csv")
 #d.DataFrame.from_dict(data = hkn_dict, orient = "index").to_csv("./data/hkn_df.csv")
 #pd.DataFrame.from_dict(data = hk_dict, orient = "index").to_csv("./data/hk_df.csv")

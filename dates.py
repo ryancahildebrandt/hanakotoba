@@ -6,7 +6,7 @@ Created on Sun May  1 01:10:22 PM EDT 2022
 author: Ryan Hildebrandt 
 """
 
-# %% Doc setup
+# Doc setup
 import dateutil as du
 import itertools as it
 import numpy as np

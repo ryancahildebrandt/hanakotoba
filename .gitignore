@@ -1,0 +1,10 @@
+data/analyses.pickle
+data/aozora_corpus.csv
+data/aozora_corpus_en.csv
+data/azbhk_df.csv
+data/azbhk_df.pickle
+data/hk_df.csv
+data/hk_dicts.pickle
+data/main_texts.pickle
+data/meta_df.pickle
+data/tokenized.pickle

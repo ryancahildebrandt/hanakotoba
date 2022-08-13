@@ -6,13 +6,13 @@ Created on Sun Dec 26 11:59:10 AM EST 2021
 author: Ryan Hildebrandt 
 """
 
-# %% Doc setup
+# Doc setup
 import pandas as pd
 import pickle
 import re
 import scipy.stats as sps
 
-# %% pickles
+# pickles
 with open("./data/hk_dicts.pickle", "rb") as f:
     hki_dict, hkn_dict, hk_dict = pickle.load(f)
 
@@ -22,7 +22,7 @@ with open("./data/meta_df.pickle", "rb") as f:
 with open("./data/tokenized.pickle", "rb") as f:
     tokenized = pickle.load(f)
 
-# %% hk searching
+# hk searching
 search_names = []
 for h in list(hk_dict.keys())[1:]:
     for i in hk_dict[h]["Search Names"]:

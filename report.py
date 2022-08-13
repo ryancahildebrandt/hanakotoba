@@ -6,7 +6,7 @@ Created on Sat Apr 23 08:09:52 PM EDT 2022
 author: Ryan Hildebrandt 
 """
 
-# %% Doc setup
+# Doc setup
 import altair as alt
 import datapane as dp
 import pickle

@@ -6,7 +6,7 @@ Created on Sun Dec 19 04:00:35 PM EST 2021
 author: Ryan Hildebrandt 
 """
 
-# %% Doc setup
+# Doc setup
 import pickle
 import sudachipy
 
@@ -14,18 +14,18 @@ from sudachipy import dictionary
 from sudachipy import tokenizer
 from textwrap import wrap
 
-# %% pickles
+# pickles
 with open("./data/hk_dicts.pickle", "rb") as f:
     hki_dict, hkn_dict, hk_dict = pickle.load(f)
 
 with open("./data/main_texts.pickle", "rb") as f:
     main_texts = pickle.load(f)
 
-# %% sudachipy setup
+# sudachipy setup
 tokenizer_obj = dictionary.Dictionary().create()
 mode = tokenizer.Tokenizer.SplitMode.C
 
-# %% tagging
+# tagging
 def nlp_batch(in_str, nchar):
 	split_text = wrap(in_str, nchar)
 	morphs = [tokenizer_obj.tokenize(i, mode) for i in split_text]
